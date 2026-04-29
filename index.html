@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Task – Campaign</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div class="sb-overlay" id="sbOverlay"></div>
+
+    <div class="app">
+
+        <!-- ========== SIDEBAR ========== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <img src="assets/logo.png" alt="logo">
+                <span class="logo-text">Frontend Task</span>
+                <div class="logo-grid-btn">
+                    <img src="assets/hamburger.png" alt="hamburger">
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-item active" id="navCampaign">
+                    <img src="assets/campaign.svg" alt="campaign" srcset="" class="nav-icon">
+                    Campaign
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-card">
+                    <div class="user-row">
+                        <div class="user-avatar">
+                            <img src="https://i.pravatar.cc/40?img=8" alt="John Doe" />
+                            <span class="online-dot"></span>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">John Doe</div>
+                            <div class="user-role-txt">Admin</div>
+                        </div>
+                        <div class="logout-btn">
+                            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="email-label">Email</div>
+                    <div class="email-val">johndoe@gmail.com</div>
+                    <div class="theme-toggle">
+                        <button class="theme-btn active" id="lightBtn">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5" />
+                                <path stroke-linecap="round"
+                                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                            </svg>
+                            Light
+                        </button>
+                        <button class="theme-btn" id="darkBtn">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                            </svg>
+                            Dark
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ========== MAIN ========== -->
+        <div class="main">
+
+            <!-- ===== VIEW: EMPTY STATE ===== -->
+            <div class="view active" id="vEmpty">
+                <div class="topbar">
+                    <div class="breadcrumb">
+                        <button class="mobile-menu"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg></button>
+                        <span class="bc-home"><svg width="14" height="14" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg></span>
+                        <span class="bc-sep"><svg width="14" height="14" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg></span>
+                        <span class="bc-current">Campaign</span>
+                    </div>
+                    <div class="topbar-right">
+                        <div class="topbar-uinfo">
+                            <div class="topbar-name">John Doe</div>
+                            <div class="topbar-role">Admin</div>
+                        </div>
+                        <div class="topbar-ava"><img src="https://i.pravatar.cc/40?img=8" alt="" /><span
+                                class="topbar-dot"></span></div>
+                    </div>
+                </div>
+                <div class="empty-body">
+                    <div class="filter-row">
+                        <div class="filter-wrap">
+                            <select class="filter-select">
+                                <option>All</option>
+                                <option>Active</option>
+                                <option>Paused</option>
+                                <option>Draft</option>
+                            </select>
+                            <span class="select-chevron"><svg width="13" height="13" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg></span>
+                        </div>
+                        <div class="search-wrap">
+                            <span class="search-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35" />
+                                </svg></span>
+                            <input type="text" class="search-input" placeholder="Search" />
+                        </div>
+                    </div>
+                    <div class="empty-center">
+                        <!-- Illustration from design -->
+                        <img src="assets/noData.png" alt="No data" class="empty-illustration" />
+                        <button class="new-btn" id="newCampaignBtn">New Campaign</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== VIEW: ADVANCE CAMPAIGN ===== -->
+            <div class="view" id="vCampaign">
+                <div class="topbar">
+                    <div class="breadcrumb">
+                        <button class="mobile-menu"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg></button>
+                        <span class="bc-home"><svg width="14" height="14" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg></span>
+                        <span class="bc-sep"><svg width="14" height="14" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg></span>
+                        <span class="bc-link" id="breadcrumbCampaign">Campaign</span>
+                        <span class="bc-sep"><svg width="14" height="14" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg></span>
+                        <span class="bc-current">Advance Campaign</span>
+                    </div>
+                    <div class="topbar-right">
+                        <div class="topbar-uinfo">
+                            <div class="topbar-name">John Doe</div>
+                            <div class="topbar-role">Admin</div>
+                        </div>
+                        <div class="topbar-ava"><img src="https://i.pravatar.cc/40?img=8" alt="" /><span
+                                class="topbar-dot"></span></div>
+                    </div>
+                </div>
+
+                <div class="camp-body">
+
+                    <!-- Step tabs -->
+                    <div class="step-tabs">
+                        <div class="step-tab active">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4 6h16M4 10h16M4 14h8M4 18h8" />
+                            </svg>
+                            Define Target Audience
+                        </div>
+                        <div class="step-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg></div>
+                        <div class="step-tab">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                            Sender Profiles
+                        </div>
+                        <div class="step-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg></div>
+                        <div class="step-tab">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                            Settings
+                        </div>
+                        <div class="step-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg></div>
+                        <div class="step-tab">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 9h6M9 13h4" />
+                            </svg>
+                            Stats
+                        </div>
+                    </div>
+
+                    <!-- Section: Choose Import Method -->
+                    <div class="sec-card">
+                        <div class="sec-head">
+                            <div class="sec-head-left">
+                                <div class="step-dot active" id="impDot"></div>
+                                <span class="sec-title">Choose Import Method</span>
+                                <span class="sec-badge" id="impBadge"></span>
+                            </div>
+                            <div class="chev up" id="impChev">
+                                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="sec-body" id="impBody">
+                            <div class="import-grid">
+
+                                <!-- LinkedIn Search -->
+                                <div class="imp-card" id="cLI">
+                                    <div class="chk-box"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                            stroke-width="3">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg></div>
+                                    <div class="imp-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#6b7ccc">
+                                            <path
+                                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                        </svg>
+                                    </div>
+                                    <div class="imp-title">LinkedIn<br>Search</div>
+                                    <div class="imp-desc">(Basic, Sales Nav, Post, Group or Event URL)</div>
+                                </div>
+
+                                <!-- Upload CSV -->
+                                <div class="imp-card" id="cCSV">
+                                    <div class="chk-box"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                            stroke-width="3">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg></div>
+                                    <div class="imp-icon">
+                                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#6b7ccc"
+                                            stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16 2v4M8 2v4M3 10h18" />
+                                        </svg>
+                                    </div>
+                                    <div class="imp-title">Upload<br>CSV File</div>
+                                    <div class="imp-desc">Upload LinkedIn profiles via CSV. <a href="#">Download
+                                            Sample</a></div>
+                                </div>
+
+                                <!-- Lead Lists / Lookalike -->
+                                <div class="imp-card" id="cLL">
+                                    <div class="chk-box"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                            stroke-width="3">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg></div>
+                                    <div class="imp-icon">
+                                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#6b7ccc"
+                                            stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="imp-title" id="llCardTitle">Lead Lists</div>
+                                    <div class="imp-desc" id="llCardDesc">Use Lead Finder to find audience.</div>
+                                </div>
+
+                                <!-- Inbound Webhook -->
+                                <div class="imp-card" id="cWH">
+                                    <div class="chk-box"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                            stroke-width="3">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg></div>
+                                    <div class="imp-icon">
+                                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#6b7ccc"
+                                            stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <div class="imp-title">Inbound<br>Webhook</div>
+                                    <div class="imp-desc">Sync leads from zapier, n8n make in real time</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sub: Paste LinkedIn Search URL (image 4) -->
+                    <div class="sec-card sub-sec" id="sLI">
+                        <div class="sec-head">
+                            <div class="sec-head-left">
+                                <div class="step-dot active"></div>
+                                <span class="sec-title">Paste LinkedIn Search URL</span>
+                            </div>
+                            <div class="chev up"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                                </svg></div>
+                        </div>
+                        <div class="sec-body">
+                            <div class="url-panel">
+                                <div class="url-top">
+                                    <div class="url-text">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#6b7ccc"
+                                            style="flex-shrink:0">
+                                            <path
+                                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                        </svg>
+                                        Find your target audience with <a href="#">LinkedIn Search</a> or <a
+                                            href="#">Sales Navigator</a> or <a href="#">Post URL</a> or <a
+                                            href="#">Group URL</a>
+                                    </div>
+                                    <a href="#" class="sg-link">
+                                        <svg width="13" height="13" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01" />
+                                        </svg>
+                                        Search Guide
+                                    </a>
+                                </div>
+                                <div class="url-row">
+                                    <input type="text" class="url-inp"
+                                        placeholder="https://www.linkedin.com/search/results/people/?keywords="
+                                        id="liUrl" />
+                                    <button class="val-btn" id="validateLiBtn">Validate</button>
+                                </div>
+                                <div class="url-hint">Paste the search URL directly from LinkedIn</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sub: Upload CSV File (image 5) -->
+                    <div class="sec-card sub-sec" id="sCSV">
+                        <div class="sec-head">
+                            <div class="sec-head-left">
+                                <div class="step-dot active"></div>
+                                <span class="sec-title">Upload CSV File</span>
+                                <span class="sec-badge">Step 1 of 2</span>
+                            </div>
+                            <div class="chev up"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                                </svg></div>
+                        </div>
+                        <div class="sec-body">
+                            <div class="csv-drop" id="csvDrop">
+                                <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#4361ee"
+                                    stroke-width="1.8" style="margin-bottom:4px">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                </svg>
+                                <div class="csv-up-text">Drag a File or click a browse</div>
+                                <div class="csv-hint">File with up to 100 rows works best</div>
+                                <input type="file" id="csvFile" accept=".csv" style="display:none" />
+                            </div>
+                            <a href="#" class="dl-sample">
+                                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                                Download a sample file
+                            </a>
+                            <div id="csvMsg"
+                                style="display:none;margin-top:10px;font-size:12.5px;color:#22c55e;display:flex;align-items:center;gap:5px">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#22c55e"
+                                    stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span id="csvFN"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sub: Lookalike / Lead Lists -->
+                    <div class="sec-card sub-sec" id="sLL">
+                        <div class="sec-head">
+                            <div class="sec-head-left">
+                                <div class="step-dot active"></div>
+                                <span class="sec-title" id="llSubName">Lead Lists</span>
+                            </div>
+                        </div>
+                        <div class="sec-body" style="color:#9ca3af;font-size:13px;text-align:center;padding:28px 18px">
+                            Use Lead Finder to discover and import your target audience.
+                        </div>
+                    </div>
+
+                    <!-- Sub: Webhook -->
+                    <div class="sec-card sub-sec" id="sWH">
+                        <div class="sec-head">
+                            <div class="sec-head-left">
+                                <div class="step-dot active"></div>
+                                <span class="sec-title">Inbound Webhook</span>
+                            </div>
+                        </div>
+                        <div class="sec-body" style="color:#9ca3af;font-size:13px;text-align:center;padding:28px 18px">
+                            Configure your webhook endpoint to receive real-time leads from Zapier, n8n, and more.
+                        </div>
+                    </div>
+
+                    <div class="camp-footer">
+                        <button class="btn-blue">Next</button>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /main -->
+    </div><!-- /app -->
+
+    <!-- ===== MODAL: Select Workflow Mode ===== -->
+    <div class="modal-overlay hidden" id="modal">
+        <div class="modal-box">
+            <div class="modal-x" id="closeModalX">
+                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </div>
+            <div class="modal-title">Select Workflow Mode</div>
+            <div class="modal-sub">Choose how you want your campaign to behave</div>
+
+            <!-- Advanced Workflow -->
+            <div class="wf-opt sel" id="wfAdv">
+                <div class="wf-radio">
+                    <div class="radio-dot"></div>
+                </div>
+                <div class="wf-info">
+                    <div class="wf-titlerow">
+                        <span class="wf-name">Advanced Workflow</span>
+                        <span class="rec-badge">Recommended</span>
+                    </div>
+                    <div class="wf-desc">Best for high-volume outreach</div>
+                    <div class="wf-feats">
+                        <span class="wf-feat">Conditional logic</span>
+                        <span class="wf-feat">Multiple paths</span>
+                        <span class="wf-feat">More control</span>
+                    </div>
+                </div>
+                <img src="assets/advanceWf.png" alt="Advanced Workflow" class="wf-thumb" />
+            </div>
+
+            <!-- Standard Workflow -->
+            <div class="wf-opt" id="wfStd">
+                <div class="wf-radio">
+                    <div class="radio-dot"></div>
+                </div>
+                <div class="wf-info">
+                    <div class="wf-titlerow"><span class="wf-name">Standard Workflow</span></div>
+                    <div class="wf-desc">Best for beginners</div>
+                    <div class="wf-feats">
+                        <span class="wf-feat">Linear steps</span>
+                        <span class="wf-feat">No conditions</span>
+                        <span class="wf-feat">Easy Setup</span>
+                    </div>
+                </div>
+                <img src="assets/standardWf.png" alt="Standard Workflow" class="wf-thumb" />
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-gray" id="closeModalBtn">Close</button>
+                <button class="btn-blue" id="proceedBtn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js" type="module"></script>
+</body>
+
+</html>
