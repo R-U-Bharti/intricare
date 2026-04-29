@@ -1,0 +1,84 @@
+:root {
+  /* Color Palette */
+  --primary-color: #4361ee;
+  --primary-hover: #3451d1;
+  --primary-light: #f0f3ff;
+  --primary-border: #b0bcf8;
+
+  /* Neutral Colors - Light Mode */
+  --bg-main: #f7f8fa;
+  --bg-card: #ffffff;
+  --bg-user-card: #f7f8fa;
+  --bg-input: #ffffff;
+  --border-color: #e8eaf0;
+  --border-card: #e5e7eb;
+
+  /* Text Colors - Light Mode */
+  --text-primary: #1a1a2e;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-on-primary: #ffffff;
+
+  /* Status Colors */
+  --status-online: #22c55e;
+
+  /* Spacing & Radius */
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 4px;
+  --radius-xs: 4px;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transition-fast: 0.15s ease;
+}
+
+/* Dark Mode Overrides */
+body.dark {
+  --bg-main: #111827;
+  --bg-card: #1f2937;
+  --bg-user-card: #111827;
+  --bg-input: #111827;
+  --border-color: #374151;
+  --border-card: #374151;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(146, 146, 146, 0.3);
+  border: 3px solid transparent;
+  border-radius: 9px;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 8px;
+  height: 9px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
